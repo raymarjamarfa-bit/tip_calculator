@@ -1,6 +1,7 @@
 
 import 'package:material_ui/material_ui.dart';
 
+// Main function that starts the Flutter application.
 void main() => runApp(const TipApp());
 
 class TipApp extends StatelessWidget {
@@ -20,14 +21,17 @@ class TipApp extends StatelessWidget {
     );
   }
 }
-
+// Converts the user's bill input into a number.
+// Returns null if the input is invalid.
 double? parseBill(String input) => double.tryParse(input.trim());
 
+// Calculates the tip amount and the total bill.
 ({double tip, double total}) computeTip(double bill, int percent) {
   final tip = bill * percent / 100;
   return (tip: tip, total: bill + tip);
 }
 
+// StatefulWidget that displays the tip calculator screen.
 class TipPage extends StatefulWidget {
   const TipPage({super.key});
 
@@ -72,6 +76,7 @@ class _TipPageState extends State<TipPage> {
                 hintText: 'Enter bill amount',
               ),
               onChanged: (value) {
+              // Updates the calculations whenever the bill amount changes.
                 setState(() {});
               },
             ),
